@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 /**********************************************************************
@@ -36,6 +37,7 @@ void main(int argc, char **argv)
     FILE *ifp, *ofp;
   extern int  optind;
   extern char *optarg;
+  usage();
 
 /* Obtain the filename for the residual image */
 

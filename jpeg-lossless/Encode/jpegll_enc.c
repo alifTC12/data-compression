@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "idc.h"
 
 /**********************************************************************
@@ -25,8 +27,7 @@
 
 void usage(void);
 
-
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     int row, col, row_size, col_size, temp, mode,pred;
     char inimage[50], resimage[50];
@@ -211,7 +212,7 @@ void main(int argc, char **argv)
          }
 
 /* Store JPEG mode and dimensions of the image */
-     
+
     fwrite(&mode,1,sizeof(int),ofp);
     fwrite(&col_size,1,sizeof(int),ofp);
     fwrite(&row_size,1,sizeof(int),ofp);
@@ -222,6 +223,7 @@ void main(int argc, char **argv)
      for(col=0; col<col_size; col++)
        putc(res_image[row][col],ofp);
 
+    return 0;
 
    }
 
